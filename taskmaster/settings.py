@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-onj#8(t8(@(s21-6)c+v$99c63v=r30wwkk5cr(vk%po#fpa$='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['backend-taskmaster-rmyo.onrender.com']
 
 
 # Application definition
@@ -48,14 +48,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # ¡Mover arriba!
+    'django.middleware.common.CommonMiddleware', # Mantener uno
     'django.middleware.csrf.CsrfViewMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware'
 ]
 
 ROOT_URLCONF = 'taskmaster.urls'
@@ -161,6 +160,7 @@ SIMPLE_JWT = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://taskmaster-gkhs.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -177,7 +177,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'jcamilo3003@gmail.com'
-EMAIL_HOST_PASSWORD = '%Luciana7316%'  
+EMAIL_HOST_PASSWORD = ''  
 EMAIL_USE_SSL = False
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ['https://taskmaster-gkhs.onrender.com']
