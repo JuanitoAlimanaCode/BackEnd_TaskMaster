@@ -161,6 +161,7 @@ SIMPLE_JWT = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://taskmaster-gkhs.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
