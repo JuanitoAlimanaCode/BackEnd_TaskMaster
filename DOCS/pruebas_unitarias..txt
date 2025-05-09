@@ -1,0 +1,295 @@
+Found 28 test(s).
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+EE.True
+FFalse
+.......FFespacioId recibido: None (Tipo: <class 'NoneType'>)
+F....F.Datos recibidos: <QueryDict: {'tarea': ['Nueva Tarea'], 'estado': ['1'], 'espacio': ['1']}>
+Errores: {'espacio_id': [ErrorDetail(string='Este campo es requerido.', code='required')], 'estado_id': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+FDatos recibidos: <QueryDict: {'estado': ['1'], 'espacio': ['1']}>
+Errores: {'espacio_id': [ErrorDetail(string='Este campo es requerido.', code='required')], 'estado_id': [ErrorDetail(string='Este campo es requerido.', code='required')], 'tarea': [ErrorDetail(string='Este campo es requerido.', code='required')]}
+.E.....
+======================================================================
+ERROR: test_campos_opcionales_pueden_ser_nulos_o_vacios (cuenta.tests.PerfilUsuarioModelTestCase.test_campos_opcionales_pueden_ser_nulos_o_vacios)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: cuenta_perfilusuario.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\cuenta\tests.py", line 21, in setUp
+    perfilUsuario.objects.create(user=self.user1, telefono='1234567890', direccion='Calle Falsa 123', descripcion='Perfil de prueba 1', email='perfil1_alt@example.com', first_name='Perfil', last_name='Uno')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)        
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\query.py", line 1854, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1881, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)       
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: cuenta_perfilusuario.user_id
+
+======================================================================
+ERROR: test_perfil_usuario_creado_correctamente (cuenta.tests.PerfilUsuarioModelTestCase.test_perfil_usuario_creado_correctamente)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: cuenta_perfilusuario.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\cuenta\tests.py", line 21, in setUp
+    perfilUsuario.objects.create(user=self.user1, telefono='1234567890', direccion='Calle Falsa 123', descripcion='Perfil de prueba 1', email='perfil1_alt@example.com', first_name='Perfil', last_name='Uno')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)        
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\query.py", line 1854, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1881, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)       
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: cuenta_perfilusuario.user_id
+
+======================================================================
+ERROR: test_obtener_todas_las_tareas (taskmaster_det.tests.tareasApiViewTestCase.test_obtener_todas_las_tareas)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\taskmaster_det\tests.py", line 205, in test_obtener_todas_las_tareas
+    response = self.client.get(self.list_url)
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\test.py", line 292, in get
+    response = super().get(path, data=data, **extra)  
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\test.py", line 209, in get
+    return self.generic('GET', path, **r)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\test.py", line 237, in generic
+    return super().generic(
+           ~~~~~~~~~~~~~~~^
+        method, path, data, content_type, secure, **extra)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\test.py", line 289, in request
+    return super().request(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\test.py", line 241, in request
+    request = super().request(**kwargs)
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\test\client.py", line 1087, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\test\client.py", line 802, in check_exception
+    raise exc_value
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)        
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)    
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^    
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\jcben\Integrador Final\Backend\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)      
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\taskmaster_det\views.py", line 157, in get       
+    tareas = tareas.objects.all()
+             ^^^^^^
+UnboundLocalError: cannot access local variable 'tareas' where it is not associated with a value
+
+======================================================================
+FAIL: test_crear_nuevo_espacio (taskmaster_det.tests.espaciosApiViewTestCase.test_crear_nuevo_espacio)      
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\taskmaster_det\tests.py", line 87, in test_crear_nuevo_espacio
+    self.assertEqual(espacios.objects.get(pk=response.data['id']).usuario, self.user.username)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'usuario_por_defecto' != 'testuser'   
+- usuario_por_defecto
++ testuser
+
+
+======================================================================
+FAIL: test_crear_nuevo_estado (taskmaster_det.tests.estadosApiViewTestCase.test_crear_nuevo_estado)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\taskmaster_det\tests.py", line 142, in test_crear_nuevo_estado
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 405 != 201
+
+======================================================================
+FAIL: test_crear_nuevo_estado_con_datos_invalidos (taskmaster_det.tests.estadosApiViewTestCase.test_crear_nuevo_estado_con_datos_invalidos)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\taskmaster_det\tests.py", line 150, in test_crear_nuevo_estado_con_datos_invalidos
+    self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 405 != 400
+
+======================================================================
+FAIL: test_obtener_todos_los_estados (taskmaster_det.tests.estadosApiViewTestCase.test_obtener_todos_los_estados)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\taskmaster_det\tests.py", line 137, in test_obtener_todos_los_estados
+    self.assertEqual(response.status_code, status.HTTP_200_OK)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 200
+
+======================================================================
+FAIL: test_eliminar_estado (taskmaster_det.tests.estadosUpdateApiViewTestCase.test_eliminar_estado)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\taskmaster_det\tests.py", line 185, in test_eliminar_estado
+    self.assertEqual(estados.objects.count(), 1)      
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^      
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_crear_nueva_tarea (taskmaster_det.tests.tareasApiViewTestCase.test_crear_nueva_tarea)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jcben\Integrador Final\Backend\taskmaster\taskmaster_det\tests.py", line 211, in test_crear_nueva_tarea
+    self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+
+----------------------------------------------------------------------
+Ran 28 tests in 19.345s
+
+FAILED (failures=6, errors=3)
+Destroying test database for alias 'default'...  

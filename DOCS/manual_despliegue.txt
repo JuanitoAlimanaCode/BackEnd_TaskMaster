@@ -1,0 +1,103 @@
+Estructura del Manual de Despliegue: Taskmaster
+
+1. Requisitos Previos
+Node.js y npm
+
+Python 3.x
+
+pip
+
+Git
+
+PostgreSQL o el motor de base de datos que uses
+
+Servidor (Linux recomendado, como Ubuntu 20.04+)
+
+(Opcional) Nginx + Gunicorn
+
+2. Clonar el Repositorio
+bash
+Copiar
+Editar
+git clone https://github.com/JuanitoAlimanaCode/BackEnd_TaskMaster.git
+cd taskmaster
+3. Configurar el Backend (Django)
+bash
+Copiar
+Editar
+cd backend/
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+Configura .venv o settings.py:
+BASE_URL
+
+DB settings
+
+DEBUG = False
+
+ALLOWED_HOSTS = ['tu_dominio.com', 'localhost']
+
+Ejecutar migraciones:
+bash
+Copiar
+Editar
+python manage.py migrate
+Crear superusuario:
+bash
+Copiar
+Editar
+python manage.py createsuperuser
+(Opcional) Cargar datos iniciales:
+bash
+Copiar
+Editar
+python manage.py loaddata datos_iniciales.json
+4. Configurar el Frontend (React)
+bash
+Copiar
+Editar
+cd ../frontend/
+npm install
+npm run build
+Esto genera una carpeta build/ lista para producción.
+
+5. Servir el Frontend desde Django (opcional)
+Puedes copiar la carpeta build a una ruta en Django o servirla con Nginx directamente:
+
+bash
+Copiar
+Editar
+# En settings.py
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend/build/static')]
+TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'frontend/build')]
+
+# En urls.py
+from django.views.generic import TemplateView
+
+urlpatterns = [
+    ...
+    path('', TemplateView.as_view(template_name='index.html')),
+]
+6. Despliegue en Producción
+Configura Gunicorn:
+
+bash
+Copiar
+Editar
+gunicorn nombre_proyecto.wsgi:application --bind 0.0.0.0:8000
+Configura Nginx para servir React + pasar solicitudes a Gunicorn
+
+(Opcional) Usa supervisor o systemd para mantener procesos activos
+
+7. Seguridad y optimizaciones
+DEBUG = False
+
+ALLOWED_HOSTS definidos
+
+HTTPS con Let's Encrypt
+
+Archivos estáticos servidos correctamente (collectstatic)
+
+.env protegido
+
