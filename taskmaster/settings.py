@@ -177,7 +177,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'jcamilo3003@gmail.com'
-EMAIL_HOST_PASSWORD = '%Luciana7316%'  
+EMAIL_HOST_PASSWORD = ''  
 EMAIL_USE_SSL = False
 
 CSRF_TRUSTED_ORIGINS = ['https://taskmaster-gkhs.onrender.com']
