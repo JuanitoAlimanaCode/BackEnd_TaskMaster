@@ -180,4 +180,4 @@ EMAIL_HOST_USER = 'jcamilo3003@gmail.com'
 EMAIL_HOST_PASSWORD = '%Luciana7316%'  
 EMAIL_USE_SSL = False
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ['https://taskmaster-gkhs.onrender.com']
