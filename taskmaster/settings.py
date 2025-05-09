@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-onj#8(t8(@(s21-6)c+v$99c63v=r30wwkk5cr(vk%po#fpa$=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['backend-taskmaster-rmyo.onrender.com']
 
 
 # Application definition
